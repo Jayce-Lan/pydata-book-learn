@@ -27,3 +27,15 @@ log.info(tup4)  # (1, 2, 3)
 tup5 = tuple('hello')  # 从字符串创建
 log.info(tup5)  # ('h', 'e', 'l', 'l', 'o')
 
+log.info(tup5[2])  # 'l'
+# 元组是不可变的，不能修改元组中的元素
+try:
+    tup5[2] = 'x'  # 会引发TypeError
+except TypeError as e:
+    log.error(f"Error: {e}")  # Error: 'tuple' object does not support item assignment
+
+# 如果元组中的某个元素是可变对象（如列表），则可以修改该可变对象
+tup6 = (1, 2, [3, 4])
+log.info(tup6)  # (1, 2, [3, 4])
+tup6[2][0] = 'x'  # 修改列表中的元素
+log.info(tup6)  # (1, 2, ['x', 4])
