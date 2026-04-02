@@ -1,0 +1,11 @@
+# 忽略整个文件夹
+node_modules/
+dist/
+build/
+.idea/
+.vscode/
+
+# 忽略所有某种后缀的文件
+*.log
+*.tmp
+*.DS_Store
