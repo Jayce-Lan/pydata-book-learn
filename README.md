@@ -12,4 +12,5 @@
 - chapter03
     - `data_structure_01_tuple.py` : Python的数据结构-元组（tuple）
     - `data_structure_02_temp.py` : Python中的变量替换
-    - `data_structure_03_list.py` : 列表（list）
+    - `data_structure_03_list.py` : 列表（list）的一些简单操作
+    - `data_structure_04_list.py` : 列表的函数

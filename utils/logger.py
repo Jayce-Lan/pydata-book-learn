@@ -6,16 +6,14 @@ import queue
 import atexit
 from logging.handlers import QueueHandler, QueueListener
 
-# ===================== 自动路径 =====================
+# ===================== 自动路径配置 =====================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_CONF_PATH = os.path.join(BASE_DIR, "logging.conf")
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 
-# 自动创建日志目录
-for sub_dir in ["info", "error", "debug"]:
-    path = os.path.join(LOG_DIR, sub_dir)
-    if not os.path.exists(path):
-        os.makedirs(path)
+# 只创建 logs 文件夹，不创建任何子文件夹
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
 
 # ===================== 异步日志核心 =====================
 class AsyncLogger:
@@ -44,10 +42,9 @@ class AsyncLogger:
             cls._start_async_listener()
             cls._initialized = True
 
-        # 自动获取调用文件名做 logger 名
         caller_frame = sys._getframe(1)
         filename = os.path.splitext(os.path.basename(caller_frame.f_code.co_filename))[0]
         return logging.getLogger(filename)
 
-# 全局导出，一行调用
+# 全局导出
 log = AsyncLogger.get_logger()
