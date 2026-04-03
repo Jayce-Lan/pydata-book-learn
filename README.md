@@ -6,6 +6,9 @@
 - `app.log` : 日志打印结果文件
 
 ### 目录结构
+- utils
+    - `logger.py` 封装日志调用的方法
 - chapter03
-    - `01_data_structure-tuple.py` : Python的数据结构-元组
+    - `01_data_structure-tuple.py` : Python的数据结构-元组（tuple）
     - `02_data_structure-temp.py` : Python中的变量替换
+    - `03_data_structure-list.py` : 列表（list）
