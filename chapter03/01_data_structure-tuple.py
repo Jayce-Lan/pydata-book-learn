@@ -71,3 +71,36 @@ log.info(f"a: {a}, b: {b}, c: {c}, d: {d}")  # a: 1, b: 2, c: 3, d: 4
 # 也可以不拆分元组中的元素
 a, b, c = tup11
 log.info(f"a: {a}, b: {b}, c: {c}") # a: 1, b: (2, 3), c: 4
+
+# 使用变量拆分遍历带有元组的列表
+seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+for a, b, c in seq:
+    log.info(f"a: {a}, b: {b}, c: {c}")
+    # a: 1, b: 2, c: 3
+    # a: 4, b: 5, c: 6
+    # a: 7, b: 8, c: 9
+
+# 如果只希望截取元组的前几个值，而且不希望报错，可以使用*运算符来捕获剩余的元素
+# 这样可以避免too many values to unpack的错误
+tup12 = (1, 2, 3, 4, 5)
+a, b, *rest = tup12
+log.info(f"a: {a}, b: {b}, rest: {rest}")  # a: 1, b: 2, rest: [3, 4, 5]
+# 一般情况下，*rest会捕获剩余的元素，并将它们放在一个列表中。如果不需要捕获剩余的元素，可以使用_来表示
+a, b, *_ = tup12
+log.info(f"a: {a}, b: {b}")  # a: 1, b: 2
+# 也可以截取后几个值
+*rest, c, d = tup12
+log.info(f"rest: {rest}, c: {c}, d: {d}")  # rest: [1, 2, 3], c: 4, d: 5
+
+# 元组的一些方法
+# count()方法可以统计元组中某个元素出现的次数
+tup13 = (1, 2, 3, 2, 4, 2)
+log.info(tup13.count(2))  # 3
+
+# index()方法可以返回元组中某个元素第一次出现的索引位置
+log.info(tup13.index(2))  # 1
+# 如果元素不存在于元组中，index()方法会引发ValueError异常
+try:
+    log.info(tup13.index(5))  # ValueError: tuple.index(x): x not found
+except ValueError as e:
+    log.error(f"Error: {e}")  # Error: tuple.index(x): x not found
