@@ -4,6 +4,7 @@ dist/
 build/
 .idea/
 .vscode/
+logs/
 
 # 忽略所有某种后缀的文件
 *.log
