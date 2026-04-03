@@ -39,3 +39,35 @@ tup6 = (1, 2, [3, 4])
 log.info(tup6)  # (1, 2, [3, 4])
 tup6[2][0] = 'x'  # 修改列表中的元素
 log.info(tup6)  # (1, 2, ['x', 4])
+
+tup7 = (1, 'foo', ['a', 'b'], 3)
+log.info(tup7)  # (1, 'foo', ['a', 'b'], 3)
+tup7[2].append('c')  # 修改列表中的元素
+log.info(tup7)  # (1, 'foo', ['a', 'b', 'c'], 3)
+
+# 运用+运算符连接元组
+tup8 = (1, 2) + (3, 4)
+log.info(tup8)  # (1, 2, 3, 4)
+
+# 运用*运算符重复元组
+tup9 = ('foo', 'bar')
+log.info(f"tup9: {tup9 * 4}")  # ('foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'bar')
+
+# 拆分元组，如果想把元组的元素赋值给变量，Python会试图拆分元组
+tup10 = (1, 2, 3)
+a, b, c = tup10
+log.info(f"a: {a}, b: {b}, c: {c}")  # a: 1, b: 2, c: 3
+# 值得注意的是，如果变量的数量与元组中的元素数量不匹配，就会引发ValueError异常
+try:
+    d, e = tup10
+    log.info(f"d: {d}, e: {e}")  # ValueError: too many values to unpack (expected 2)
+except ValueError as e:
+    log.error(f"Error: {e}") # Error: too many values to unpack (expected 2, got 3)
+
+# 含有元组的元素也会被拆分
+tup11 = (1, (2, 3), 4)
+a, (b, c), d = tup11
+log.info(f"a: {a}, b: {b}, c: {c}, d: {d}")  # a: 1, b: 2, c: 3, d: 4
+# 也可以不拆分元组中的元素
+a, b, c = tup11
+log.info(f"a: {a}, b: {b}, c: {c}") # a: 1, b: (2, 3), c: 4
