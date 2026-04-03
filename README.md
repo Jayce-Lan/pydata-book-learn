@@ -6,6 +6,7 @@
 - `app.log` : 日志打印结果文件
 
 ### 目录结构
+- `.env` : IDE自动加载路径类，每个文件打印日志无需再引入os等，直接导入logger.py即可
 - utils
     - `logger.py` 封装日志调用的方法
 - chapter03
