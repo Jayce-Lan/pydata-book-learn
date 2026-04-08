@@ -14,3 +14,4 @@
     - `data_structure_02_temp.py` : Python中的变量替换
     - `data_structure_03_list.py` : 列表（list）的一些简单操作
     - `data_structure_04_bisect.py` : 二分查找（list相关）
+    - `data_structure_05_slicing.py` : 切片（list相关）
