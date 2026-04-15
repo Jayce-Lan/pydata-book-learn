@@ -4,9 +4,9 @@
 - `requirements.txt` : 依赖包文件
 - `logging.conf` : 日志配置文件
 - `app.log` : 日志打印结果文件
+- `.env` : IDE自动加载路径类，每个文件打印日志无需再引入os等，直接导入logger.py即可
 
 ### 目录结构
-- `.env` : IDE自动加载路径类，每个文件打印日志无需再引入os等，直接导入logger.py即可
 - utils
     - `logger.py` 封装日志调用的方法
 - chapter03
@@ -16,3 +16,4 @@
     - `data_structure_04_bisect.py` : 二分查找（list相关）
     - `data_structure_05_slicing.py` : 切片（list相关）
     - `data_structure_06_sequence_function.py` : 序列函数
+    - `data_structure_07_dict.py` : Python的数据结构-字典（dict）
